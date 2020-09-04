@@ -1,0 +1,12 @@
+break *main
+set disassembly-flavor intel
+disassemble main
+define hook-stop
+x/1i $eip
+x/8wx $esp
+
+info register
+x/24wx $rsp
+x/2i $rip
+end
+x/wx $rbp-0x54
